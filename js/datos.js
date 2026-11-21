@@ -1,16 +1,16 @@
 /* Datos de referencia. Actualízalos aquí y se reflejan en todas las calculadoras.
-   Última revisión: 20/10/2026.
+   Última revisión: 21/11/2026.
    ITP y AJD: tipos generales 2026 por comunidad (guiafiscal.es, boletines autonómicos).
    Euríbor: medias mensuales oficiales a 12 meses (Banco de España / BOE). */
 window.HC_DATOS = {
-  actualizado: "21 de octubre de 2026",
+  actualizado: "21 de noviembre de 2026",
   euribor: {
-    ultimoMes: "septiembre 2026",
-    ultimo: 3.247,
+    ultimoMes: "octubre 2026",
+    ultimo: 3.239,
     serie: [
-      ["sep 25", 2.172], ["oct 25", 2.187], ["ene 26", 2.245], ["feb 26", 2.221],
+      ["oct 25", 2.187], ["ene 26", 2.245], ["feb 26", 2.221],
       ["mar 26", 2.565], ["abr 26", 2.747], ["may 26", 2.804], ["jun 26", 2.798],
-      ["jul 26", 2.855], ["ago 26", 2.954], ["sep 26", 3.247]
+      ["jul 26", 2.855], ["ago 26", 2.954], ["sep 26", 3.247], ["oct 26", 3.239]
     ]
   },
   // itp: tipo general vivienda usada (%); joven: tipo reducido orientativo (null si no hay);

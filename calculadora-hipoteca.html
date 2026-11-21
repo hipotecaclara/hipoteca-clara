@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de hipoteca 2026: cuota mensual fija y variable</title>
+<meta name="description" content="Calcula la cuota mensual de tu hipoteca a tipo fijo o variable con el Euríbor actual, los intereses totales y el cuadro de amortización.">
+<link rel="canonical" href="https://www.tudominio.es/calculadora-hipoteca.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de hipoteca 2026: cuota mensual fija y variable">
+<meta property="og:description" content="Calcula la cuota mensual de tu hipoteca a tipo fijo o variable con el Euríbor actual, los intereses totales y el cuadro de amortización.">
+<meta property="og:url" content="https://www.tudominio.es/calculadora-hipoteca.html">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<!-- GOOGLE ADSENSE: cuando AdSense te dé tu código, sustituye ca-pub-XXXXXXXXXXXXXXXX y quita los comentarios de la línea siguiente.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo se calcula la cuota de una hipoteca?", "acceptedAnswer": {"@type": "Answer", "text": "En España casi todas las hipotecas usan el sistema francés: cuota constante en la que, al principio, la mayor parte son intereses y, con los años, va ganando peso el capital. La fórmula es cuota = capital × i / (1 − (1 + i)^−n), donde i es el tipo mensual (TIN anual / 12) y n el número de mensualidades."}}, {"@type": "Question", "name": "¿Qué diferencia hay entre TIN y TAE?", "acceptedAnswer": {"@type": "Answer", "text": "El TIN es el tipo de interés puro que se aplica al capital. La TAE incluye además comisiones, gastos obligatorios y la frecuencia de pago, y sirve para comparar ofertas entre bancos. Dos hipotecas con el mismo TIN pueden tener TAE muy distintas si una exige seguros o comisiones."}}, {"@type": "Question", "name": "¿Me conviene un plazo más largo?", "acceptedAnswer": {"@type": "Answer", "text": "Un plazo largo baja la cuota mensual pero dispara los intereses totales. Pasar de 25 a 30 años en un préstamo de 200.000 € al 3 % reduce la cuota en unos 105 € al mes y añade más de 18.000 € de intereses. Mira las dos cifras en la calculadora antes de decidir."}}, {"@type": "Question", "name": "¿La cuota incluye seguros?", "acceptedAnswer": {"@type": "Answer", "text": "No. La calculadora muestra solo capital e intereses. Si el banco te bonifica el diferencial a cambio de contratar seguros de vida u hogar, suma su coste anual para comparar de verdad."}}]}</script>
+</head>
+<body>
+<a href="#contenido" class="sr-skip" style="position:absolute;left:-9999px">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="calculadora-hipoteca.html" aria-current="page">Calculadora</a><a href="gastos-compra-vivienda.html">Gastos de compra</a><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a><a href="euribor.html">Euríbor</a><a href="articulos.html">Guías y artículos</a><a href="itp-por-comunidades.html">ITP por comunidad</a></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="wrap page-head">
+  <div class="crumbs"><a href="index.html">Inicio</a> / Calculadora de hipoteca</div>
+  <h1>Calculadora de hipoteca</h1>
+  <p class="lead">Calcula la cuota mensual de tu préstamo a tipo fijo o variable, los intereses que pagarás en total y cómo se reparte cada año entre capital e intereses.</p>
+  <div class="updated">Actualizado: <span data-actualizado>21 de octubre de 2026</span></div>
+</div>
+<div class="wrap layout">
+  <div style="min-width:0">
+    <form class="panel" id="calc-cuota" onsubmit="return false">
+      <div class="fields">
+        <div><label for="c-precio">Precio de la vivienda (€)</label><input id="c-precio" type="number" inputmode="decimal" value="250000" min="0" step="1000"></div>
+        <div><label for="c-entrada">Ahorro que aportas (€) <span class="hint">sin contar gastos</span></label><input id="c-entrada" type="number" inputmode="decimal" value="50000" min="0" step="1000"></div>
+        <div><label for="c-anos">Plazo (años)</label><input id="c-anos" type="number" value="30" min="1" max="40"></div>
+        <div><label>Tipo de interés</label><div class="seg" role="group" aria-label="Tipo de interés"><button type="button" data-modo="fijo" aria-pressed="true">Fijo</button><button type="button" data-modo="variable" aria-pressed="false">Variable</button></div></div>
+        <div id="row-tin"><label for="c-tin">TIN fijo (%)</label><input id="c-tin" type="number" value="2.9" step="0.05" min="0"></div>
+        <div id="row-eur" hidden><label for="c-euribor">Euríbor (%) <span class="hint">último dato oficial</span></label><input id="c-euribor" type="number" value="3.247" step="0.01"></div>
+        <div id="row-dif" hidden><label for="c-dif">Diferencial (%)</label><input id="c-dif" type="number" value="0.75" step="0.05" min="0"></div>
+      </div>
+      <div class="result">
+        <div class="hint">Cuota mensual</div>
+        <div class="big" id="r-cuota">—</div>
+        <div class="stats">
+          <div class="stat"><div class="k">Importe del préstamo</div><div class="v" id="r-capital">—</div></div>
+          <div class="stat"><div class="k">Tipo aplicado</div><div class="v" id="r-tin">—</div></div>
+          <div class="stat"><div class="k">Intereses totales</div><div class="v" id="r-intereses">—</div></div>
+          <div class="stat"><div class="k">Total a devolver</div><div class="v" id="r-total">—</div></div>
+        </div>
+        <p class="callout" id="r-aviso" hidden></p>
+        <p class="hint" id="r-sens" hidden style="margin-top:14px"></p>
+        <h3 style="margin-top:22px;font-size:1rem">Cuánto pagas cada año</h3>
+        <svg class="chart" id="amort-chart" role="img" aria-label="Capital e intereses pagados cada año"></svg>
+        <div class="legend"><span><i style="background:var(--ink)"></i>Capital</span><span><i style="background:var(--sign)"></i>Intereses</span></div>
+        <details class="amort"><summary>Ver cuadro de amortización anual</summary>
+          <div class="table-scroll" style="margin-top:12px"><table class="data"><thead><tr><th>Año</th><th>Capital amortizado</th><th>Intereses</th><th>Pendiente</th></tr></thead><tbody id="amort-body"></tbody></table></div>
+        </details>
+      </div>
+    </form>
+    <div class="ad-slot " aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+    <div class="prose">
+      <h2>Cómo leer el resultado</h2>
+      <p>La <strong>cuota mensual</strong> es lo que el banco te cargará cada mes. Fíjate también en los <strong>intereses totales</strong>: es lo que te cuesta el dinero prestado durante toda la vida de la hipoteca. En el gráfico verás que los primeros años pagas sobre todo intereses; por eso amortizar anticipadamente al principio ahorra mucho más que hacerlo al final.</p>
+      <h3>Hipoteca variable: qué pasa en cada revisión</h3>
+      <p>En una variable, el tipo que pagas es Euríbor + diferencial. Cada 6 o 12 meses el banco toma la media del Euríbor de un mes concreto (el que fija tu escritura, normalmente dos meses antes de la revisión) y recalcula la cuota sobre el capital que te queda. Muchas ofertas aplican un tipo fijo el primer año y pasan a variable después.</p>
+      <div class="callout"><p><strong>Consejo:</strong> antes de firmar una variable, calcula la cuota con el Euríbor dos puntos por encima del actual. Si con esa cifra seguirías llegando a fin de mes, el riesgo es asumible.</p></div>
+      <h3>Bonificaciones del diferencial</h3>
+      <p>Los bancos rebajan el tipo si domicilias la nómina, contratas seguros o un plan de pensiones. Suma el coste anual de esos productos y compáralo con lo que ahorras en intereses. Un seguro de vida de 400 € al año que te rebaja 0,20 puntos en un préstamo de 200.000 € apenas compensa.</p>
+      <h2>Cuotas según el importe</h2><div class='related'><a href='hipoteca-100000-euros.html'>Hipoteca de 100.000 €</a><a href='hipoteca-120000-euros.html'>Hipoteca de 120.000 €</a><a href='hipoteca-150000-euros.html'>Hipoteca de 150.000 €</a><a href='hipoteca-180000-euros.html'>Hipoteca de 180.000 €</a><a href='hipoteca-200000-euros.html'>Hipoteca de 200.000 €</a><a href='hipoteca-250000-euros.html'>Hipoteca de 250.000 €</a><a href='hipoteca-300000-euros.html'>Hipoteca de 300.000 €</a></div><h2>Preguntas frecuentes</h2><h3>¿Cómo se calcula la cuota de una hipoteca?</h3><p>En España casi todas las hipotecas usan el sistema francés: cuota constante en la que, al principio, la mayor parte son intereses y, con los años, va ganando peso el capital. La fórmula es cuota = capital × i / (1 − (1 + i)^−n), donde i es el tipo mensual (TIN anual / 12) y n el número de mensualidades.</p><h3>¿Qué diferencia hay entre TIN y TAE?</h3><p>El TIN es el tipo de interés puro que se aplica al capital. La TAE incluye además comisiones, gastos obligatorios y la frecuencia de pago, y sirve para comparar ofertas entre bancos. Dos hipotecas con el mismo TIN pueden tener TAE muy distintas si una exige seguros o comisiones.</p><h3>¿Me conviene un plazo más largo?</h3><p>Un plazo largo baja la cuota mensual pero dispara los intereses totales. Pasar de 25 a 30 años en un préstamo de 200.000 € al 3 % reduce la cuota en unos 105 € al mes y añade más de 18.000 € de intereses. Mira las dos cifras en la calculadora antes de decidir.</p><h3>¿La cuota incluye seguros?</h3><p>No. La calculadora muestra solo capital e intereses. Si el banco te bonifica el diferencial a cambio de contratar seguros de vida u hogar, suma su coste anual para comparar de verdad.</p>
+    </div>
+  </div>
+<aside class="aside">
+  <div class="panel">
+    <h3>Euríbor a 12 meses</h3>
+    <div class="big" style="font-size:2rem"><span data-euribor>3,247 %</span></div>
+    <p class="hint">Media oficial de <span data-euribor-mes>septiembre 2026</span>. <a href="euribor.html">Ver evolución</a></p>
+  </div>
+  
+  <div class="panel">
+    <h3>Herramientas</h3>
+    <ul>
+      <li><a href="calculadora-hipoteca.html">Calcular la cuota</a></li>
+      <li><a href="gastos-compra-vivienda.html">Gastos e impuestos</a></li>
+      <li><a href="cuanto-puedo-pagar.html">Precio máximo según tu sueldo</a></li>
+    </ul>
+  </div>
+  <div class="ad-slot tall" aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+      <p>Calculadoras y guías gratuitas para entender tu hipoteca y lo que cuesta de verdad comprar una vivienda en España.</p>
+    </div>
+    <div>
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="calculadora-hipoteca.html">Calculadora de hipoteca</a></li>
+        <li><a href="gastos-compra-vivienda.html">Gastos de compra e ITP</a></li>
+        <li><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a></li>
+        <li><a href="euribor.html">Euríbor hoy</a></li>
+        <li><a href="itp-por-comunidades.html">ITP por comunidades</a></li>
+        <li><a href="articulos.html">Guías y artículos</a></li>
+        <li><a href="glosario.html">Glosario</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sitio</h4>
+      <ul>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="cookies.html">Política de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal-note"><div class="wrap">Información orientativa con fines divulgativos. No constituye asesoramiento financiero, fiscal ni legal. Antes de firmar, consulta tu caso con tu banco, un notario o un asesor. © 2026 Hipoteca Clara.</div></div>
+</footer>
+<script src="js/datos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

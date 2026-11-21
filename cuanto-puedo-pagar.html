@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Cuánto puedo pagar por una casa? Calculadora 2026</title>
+<meta name="description" content="Descubre el precio máximo de vivienda que puedes permitirte según tus ingresos netos, tus ahorros y los impuestos de tu comunidad autónoma.">
+<link rel="canonical" href="https://www.tudominio.es/cuanto-puedo-pagar.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="¿Cuánto puedo pagar por una casa? Calculadora 2026">
+<meta property="og:description" content="Descubre el precio máximo de vivienda que puedes permitirte según tus ingresos netos, tus ahorros y los impuestos de tu comunidad autónoma.">
+<meta property="og:url" content="https://www.tudominio.es/cuanto-puedo-pagar.html">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<!-- GOOGLE ADSENSE: cuando AdSense te dé tu código, sustituye ca-pub-XXXXXXXXXXXXXXXX y quita los comentarios de la línea siguiente.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto me presta el banco según mi sueldo?", "acceptedAnswer": {"@type": "Answer", "text": "Los bancos suelen limitar la cuota al 30–35 % de los ingresos netos mensuales de todos los titulares, descontando otras deudas. Con 2.500 € netos al mes, una cuota de unos 875 € a 30 años y un 3 % permite un préstamo de alrededor de 207.000 €."}}, {"@type": "Question", "name": "¿Puedo conseguir una hipoteca del 100 %?", "acceptedAnswer": {"@type": "Answer", "text": "Es poco frecuente. Algunas entidades financian más del 80 % a perfiles muy solventes, a compradores de inmuebles del propio banco o a jóvenes que se acogen a las líneas de avales públicos para primera vivienda. Consulta con tu banco qué programas siguen vigentes en tu caso."}}, {"@type": "Question", "name": "¿Cuentan las pagas extra?", "acceptedAnswer": {"@type": "Answer", "text": "Sí: el banco suele usar los ingresos netos anuales divididos entre 12. Si cobras 14 pagas, introduce en la calculadora tu neto anual dividido entre 12."}}]}</script>
+</head>
+<body>
+<a href="#contenido" class="sr-skip" style="position:absolute;left:-9999px">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="calculadora-hipoteca.html">Calculadora</a><a href="gastos-compra-vivienda.html">Gastos de compra</a><a href="cuanto-puedo-pagar.html" aria-current="page">¿Cuánto puedo pagar?</a><a href="euribor.html">Euríbor</a><a href="articulos.html">Guías y artículos</a><a href="itp-por-comunidades.html">ITP por comunidad</a></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="wrap page-head">
+  <div class="crumbs"><a href="index.html">Inicio</a> / ¿Cuánto puedo pagar?</div>
+  <h1>¿Cuánto puedo pagar por una vivienda?</h1>
+  <p class="lead">Calcula el precio máximo que te puedes permitir según tus ingresos y tus ahorros, con los criterios que aplican los bancos en España.</p>
+  <div class="updated">Actualizado: <span data-actualizado>21 de octubre de 2026</span></div>
+</div>
+<div class="wrap layout">
+  <div style="min-width:0">
+    <form class="panel" id="calc-asequible" onsubmit="return false">
+      <div class="fields">
+        <div><label for="a-ingresos">Ingresos netos al mes (€) <span class="hint">de todos los titulares</span></label><input id="a-ingresos" type="number" inputmode="decimal" value="2800" min="0" step="50"></div>
+        <div><label for="a-deudas">Otras cuotas mensuales (€) <span class="hint">coche, préstamos</span></label><input id="a-deudas" type="number" inputmode="decimal" value="0" min="0" step="10"></div>
+        <div><label for="a-ahorros">Ahorros disponibles (€)</label><input id="a-ahorros" type="number" inputmode="decimal" value="60000" min="0" step="1000"></div>
+        <div><label for="a-ccaa">Comunidad autónoma</label><select id="a-ccaa" data-ccaa data-default="aragon"></select></div>
+        <div><label for="a-tin">Tipo de interés (%)</label><input id="a-tin" type="number" value="3" step="0.05" min="0"></div>
+        <div><label for="a-anos">Plazo (años)</label><input id="a-anos" type="number" value="30" min="5" max="40"></div>
+        <div class="full"><label for="a-esfuerzo">Máximo de tus ingresos para la hipoteca (%) <span class="hint">los bancos suelen exigir entre 30 y 35</span></label><input id="a-esfuerzo" type="number" value="33" min="10" max="50"></div>
+      </div>
+      <div class="result">
+        <div class="hint">Precio máximo orientativo de la vivienda</div>
+        <div class="big" id="a-precio">—</div>
+        <div class="stats">
+          <div class="stat"><div class="k">Cuota máxima</div><div class="v" id="a-cuotamax">—</div></div>
+          <div class="stat"><div class="k">Hipoteca</div><div class="v" id="a-prestamo">—</div></div>
+          <div class="stat"><div class="k">Cuota resultante</div><div class="v" id="a-cuota">—</div></div>
+          <div class="stat"><div class="k">Gastos de compra</div><div class="v" id="a-gastos">—</div></div>
+        </div>
+        <p class="callout" id="a-limita"></p>
+      </div>
+    </form>
+    <div class="ad-slot " aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+    <div class="prose">
+      <h2>Cómo calculamos el precio máximo</h2>
+      <p>Hay dos límites y manda el más estricto. El primero son tus <strong>ingresos</strong>: la cuota no debe superar el porcentaje que indiques, descontando otras deudas; con esa cuota calculamos el préstamo máximo, y como el banco presta hasta el 80 %, el precio sería ese préstamo dividido entre 0,8. El segundo son tus <strong>ahorros</strong>: tienen que cubrir el 20 % de entrada más los impuestos y gastos de tu comunidad.</p>
+      <h2>Cómo subir tu presupuesto</h2>
+      <ul>
+        <li><strong>Añadir un segundo titular</strong> con ingresos estables amplía la cuota máxima.</li>
+        <li><strong>Cancelar préstamos pequeños</strong> antes de pedir la hipoteca libera tasa de esfuerzo.</li>
+        <li><strong>Comprar en una comunidad con ITP más bajo</strong> o aprovechar un tipo reducido reduce el ahorro necesario.</li>
+        <li><strong>Alargar el plazo</strong> baja la cuota, aunque encarece el préstamo. Muchos bancos limitan la edad del titular al terminar de pagar a 70–75 años.</li>
+      </ul>
+      <div class="callout"><p>Que el banco te preste una cantidad no significa que debas pedirla entera. Deja margen para imprevistos y para posibles subidas del Euríbor si eliges tipo variable.</p></div>
+      <h2>Preguntas frecuentes</h2><h3>¿Cuánto me presta el banco según mi sueldo?</h3><p>Los bancos suelen limitar la cuota al 30–35 % de los ingresos netos mensuales de todos los titulares, descontando otras deudas. Con 2.500 € netos al mes, una cuota de unos 875 € a 30 años y un 3 % permite un préstamo de alrededor de 207.000 €.</p><h3>¿Puedo conseguir una hipoteca del 100 %?</h3><p>Es poco frecuente. Algunas entidades financian más del 80 % a perfiles muy solventes, a compradores de inmuebles del propio banco o a jóvenes que se acogen a las líneas de avales públicos para primera vivienda. Consulta con tu banco qué programas siguen vigentes en tu caso.</p><h3>¿Cuentan las pagas extra?</h3><p>Sí: el banco suele usar los ingresos netos anuales divididos entre 12. Si cobras 14 pagas, introduce en la calculadora tu neto anual dividido entre 12.</p>
+    </div>
+  </div>
+<aside class="aside">
+  <div class="panel">
+    <h3>Euríbor a 12 meses</h3>
+    <div class="big" style="font-size:2rem"><span data-euribor>3,247 %</span></div>
+    <p class="hint">Media oficial de <span data-euribor-mes>septiembre 2026</span>. <a href="euribor.html">Ver evolución</a></p>
+  </div>
+  
+  <div class="panel">
+    <h3>Herramientas</h3>
+    <ul>
+      <li><a href="calculadora-hipoteca.html">Calcular la cuota</a></li>
+      <li><a href="gastos-compra-vivienda.html">Gastos e impuestos</a></li>
+      <li><a href="cuanto-puedo-pagar.html">Precio máximo según tu sueldo</a></li>
+    </ul>
+  </div>
+  <div class="ad-slot tall" aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+      <p>Calculadoras y guías gratuitas para entender tu hipoteca y lo que cuesta de verdad comprar una vivienda en España.</p>
+    </div>
+    <div>
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="calculadora-hipoteca.html">Calculadora de hipoteca</a></li>
+        <li><a href="gastos-compra-vivienda.html">Gastos de compra e ITP</a></li>
+        <li><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a></li>
+        <li><a href="euribor.html">Euríbor hoy</a></li>
+        <li><a href="itp-por-comunidades.html">ITP por comunidades</a></li>
+        <li><a href="articulos.html">Guías y artículos</a></li>
+        <li><a href="glosario.html">Glosario</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sitio</h4>
+      <ul>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="cookies.html">Política de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal-note"><div class="wrap">Información orientativa con fines divulgativos. No constituye asesoramiento financiero, fiscal ni legal. Antes de firmar, consulta tu caso con tu banco, un notario o un asesor. © 2026 Hipoteca Clara.</div></div>
+</footer>
+<script src="js/datos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

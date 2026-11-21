@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gastos de comprar una vivienda 2026: ITP, IVA y notaría</title>
+<meta name="description" content="Calcula los impuestos y gastos de comprar casa en tu comunidad autónoma: ITP, IVA, AJD, notaría, registro y tasación. Tabla de ITP 2026 por comunidades.">
+<link rel="canonical" href="https://www.tudominio.es/gastos-compra-vivienda.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gastos de comprar una vivienda 2026: ITP, IVA y notaría">
+<meta property="og:description" content="Calcula los impuestos y gastos de comprar casa en tu comunidad autónoma: ITP, IVA, AJD, notaría, registro y tasación. Tabla de ITP 2026 por comunidades.">
+<meta property="og:url" content="https://www.tudominio.es/gastos-compra-vivienda.html">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<!-- GOOGLE ADSENSE: cuando AdSense te dé tu código, sustituye ca-pub-XXXXXXXXXXXXXXXX y quita los comentarios de la línea siguiente.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué gastos paga el comprador al comprar una vivienda?", "acceptedAnswer": {"@type": "Answer", "text": "El comprador paga el impuesto de la compraventa (ITP en vivienda usada; IVA y AJD en vivienda nueva), la notaría y el registro de la escritura de compraventa, la gestoría si la contrata y la tasación si pide hipoteca. Desde la Ley 5/2019, los gastos de notaría, registro y gestoría de la escritura de hipoteca, y el AJD de la hipoteca, los paga el banco."}}, {"@type": "Question", "name": "¿Cuánto tengo que tener ahorrado para comprar un piso?", "acceptedAnswer": {"@type": "Answer", "text": "Como referencia, el 20 % del precio que el banco no financia más los gastos de compra, que oscilan entre el 8 % y el 13 % según la comunidad y si la vivienda es nueva o usada. Para un piso de 200.000 € eso suele suponer entre 56.000 € y 66.000 €."}}, {"@type": "Question", "name": "¿Cuándo se paga el ITP?", "acceptedAnswer": {"@type": "Answer", "text": "Se autoliquida con el modelo 600 (o el equivalente de tu comunidad) en un plazo de 30 días hábiles desde la firma de la escritura. Si te lo tramita la gestoría, normalmente te pedirá el importe el día de la firma."}}, {"@type": "Question", "name": "¿Sobre qué valor se calcula el ITP?", "acceptedAnswer": {"@type": "Answer", "text": "Sobre el mayor entre el precio de compra y el valor de referencia del Catastro. Puedes consultar el valor de referencia de un inmueble en la Sede Electrónica del Catastro con su referencia catastral antes de cerrar la operación."}}]}</script>
+</head>
+<body>
+<a href="#contenido" class="sr-skip" style="position:absolute;left:-9999px">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal"><a href="index.html">Inicio</a><a href="calculadora-hipoteca.html">Calculadora</a><a href="gastos-compra-vivienda.html" aria-current="page">Gastos de compra</a><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a><a href="euribor.html">Euríbor</a><a href="articulos.html">Guías y artículos</a><a href="itp-por-comunidades.html">ITP por comunidad</a></nav>
+  </div>
+</header>
+<main id="contenido">
+<div class="wrap page-head">
+  <div class="crumbs"><a href="index.html">Inicio</a> / Gastos de compra</div>
+  <h1>Gastos e impuestos de comprar una vivienda</h1>
+  <p class="lead">Calcula cuánto pagarás de ITP o de IVA y AJD en tu comunidad autónoma, la notaría, el registro y el ahorro total que necesitas para comprar.</p>
+  <div class="updated">Actualizado: <span data-actualizado>21 de octubre de 2026</span></div>
+</div>
+<div class="wrap layout">
+  <div style="min-width:0">
+    <form class="panel" id="calc-gastos" onsubmit="return false">
+      <div class="fields">
+        <div><label for="g-precio">Precio de compra (€)</label><input id="g-precio" type="number" inputmode="decimal" value="200000" min="0" step="1000"></div>
+        <div><label for="g-ccaa">Comunidad autónoma</label><select id="g-ccaa" data-ccaa data-default="aragon"></select></div>
+        <div><label for="g-tipo">Tipo de vivienda</label><select id="g-tipo"><option value="usada">Segunda mano (ITP)</option><option value="nueva">Obra nueva (IVA + AJD)</option></select></div>
+        <div style="display:flex;flex-direction:column;gap:8px;justify-content:flex-end">
+          <label class="check"><input type="checkbox" id="g-hip" checked> Compro con hipoteca</label>
+          <label class="check" id="g-joven-row"><input type="checkbox" id="g-joven"> Aplico tipo reducido para jóvenes</label>
+        </div>
+      </div>
+      <div class="result">
+        <table class="ledger"><tbody id="g-lineas"></tbody></table>
+        <p class="hint" id="g-pct" style="text-align:right;margin:6px 0 0"></p>
+        <div class="stats" style="margin-top:20px">
+          <div class="stat"><div class="k">Ahorro necesario</div><div class="v" id="g-ahorro" style="font-size:1.5rem">—</div><div class="hint" id="g-ahorro-txt"></div></div>
+        </div>
+        <p class="callout" id="g-notas" hidden></p>
+      </div>
+    </form>
+    <div class="ad-slot " aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+    <div class="prose">
+      <h2>ITP por comunidad autónoma en 2026</h2>
+      <p>El Impuesto sobre Transmisiones Patrimoniales lo fija cada comunidad, por eso la misma vivienda puede costar varios miles de euros más según dónde esté. Estos son los tipos generales para vivienda usada y el tipo reducido de referencia para jóvenes:</p>
+    </div>
+    <div class="table-scroll"><table class="data"><thead><tr><th>Comunidad</th><th>ITP general</th><th>Tipo joven</th><th>AJD obra nueva</th><th>ITP en 200.000 €</th></tr></thead><tbody id="itp-body"></tbody></table></div>
+    <p class="hint">* Tarifa progresiva: el tipo sube en los tramos de precio más altos. El tipo joven exige requisitos de edad, vivienda habitual y límites de precio o renta que varían en cada comunidad. En Madrid y Aragón es un tipo efectivo tras bonificación. Fuente: normativa autonómica 2026.</p>
+    <div class="prose">
+      <h2>Vivienda nueva: IVA y AJD</h2>
+      <p>Si compras al promotor la primera vez que se vende la vivienda, no pagas ITP sino <strong>IVA del 10 %</strong> (4 % en vivienda protegida de régimen especial) más el <strong>Impuesto de Actos Jurídicos Documentados</strong>, que según la comunidad va del 0,5 % al 1,5 %. En Canarias se paga IGIC en lugar de IVA. El IVA se va pagando al promotor con cada entrega a cuenta, no todo el día de la firma.</p>
+      <h2>Notaría, registro y gestoría</h2>
+      <p>Los aranceles de notarios y registradores están regulados y dependen del precio y del número de folios, así que lo normal es que la notaría de la compraventa cueste entre 600 € y 1.500 € y el registro entre 400 € y 900 €. La gestoría cobra unos 300–500 € por liquidar impuestos e inscribir la escritura. Si pides hipoteca, el banco paga la notaría, el registro y la gestoría de la escritura del préstamo; tú pagas la tasación y, si quieres, una copia de la escritura.</p>
+      <h2>Gastos que se suelen olvidar</h2>
+      <ul>
+        <li><strong>Plusvalía municipal:</strong> la paga el vendedor, salvo pacto en contrario. Revisa que el contrato de arras no te la traslade.</li>
+        <li><strong>IBI del año:</strong> lo paga quien es propietario el 1 de enero, pero es habitual prorratearlo en la firma.</li>
+        <li><strong>Cuotas de comunidad pendientes:</strong> pide al vendedor un certificado de estar al corriente; las deudas del año en curso y los tres anteriores pueden recaer sobre la vivienda.</li>
+        <li><strong>Seguro de hogar:</strong> obligatorio el de incendios si hay hipoteca; puedes contratarlo con la aseguradora que quieras.</li>
+        <li><strong>Altas de suministros</strong> y, si la vivienda lo necesita, la reforma.</li>
+      </ul>
+      <h2>Preguntas frecuentes</h2><h3>¿Qué gastos paga el comprador al comprar una vivienda?</h3><p>El comprador paga el impuesto de la compraventa (ITP en vivienda usada; IVA y AJD en vivienda nueva), la notaría y el registro de la escritura de compraventa, la gestoría si la contrata y la tasación si pide hipoteca. Desde la Ley 5/2019, los gastos de notaría, registro y gestoría de la escritura de hipoteca, y el AJD de la hipoteca, los paga el banco.</p><h3>¿Cuánto tengo que tener ahorrado para comprar un piso?</h3><p>Como referencia, el 20 % del precio que el banco no financia más los gastos de compra, que oscilan entre el 8 % y el 13 % según la comunidad y si la vivienda es nueva o usada. Para un piso de 200.000 € eso suele suponer entre 56.000 € y 66.000 €.</p><h3>¿Cuándo se paga el ITP?</h3><p>Se autoliquida con el modelo 600 (o el equivalente de tu comunidad) en un plazo de 30 días hábiles desde la firma de la escritura. Si te lo tramita la gestoría, normalmente te pedirá el importe el día de la firma.</p><h3>¿Sobre qué valor se calcula el ITP?</h3><p>Sobre el mayor entre el precio de compra y el valor de referencia del Catastro. Puedes consultar el valor de referencia de un inmueble en la Sede Electrónica del Catastro con su referencia catastral antes de cerrar la operación.</p>
+    </div>
+  </div>
+<aside class="aside">
+  <div class="panel">
+    <h3>Euríbor a 12 meses</h3>
+    <div class="big" style="font-size:2rem"><span data-euribor>3,247 %</span></div>
+    <p class="hint">Media oficial de <span data-euribor-mes>septiembre 2026</span>. <a href="euribor.html">Ver evolución</a></p>
+  </div>
+  
+  <div class="panel">
+    <h3>Herramientas</h3>
+    <ul>
+      <li><a href="calculadora-hipoteca.html">Calcular la cuota</a></li>
+      <li><a href="gastos-compra-vivienda.html">Gastos e impuestos</a></li>
+      <li><a href="cuanto-puedo-pagar.html">Precio máximo según tu sueldo</a></li>
+    </ul>
+  </div>
+  <div class="ad-slot tall" aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+</aside>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+      <p>Calculadoras y guías gratuitas para entender tu hipoteca y lo que cuesta de verdad comprar una vivienda en España.</p>
+    </div>
+    <div>
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="calculadora-hipoteca.html">Calculadora de hipoteca</a></li>
+        <li><a href="gastos-compra-vivienda.html">Gastos de compra e ITP</a></li>
+        <li><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a></li>
+        <li><a href="euribor.html">Euríbor hoy</a></li>
+        <li><a href="itp-por-comunidades.html">ITP por comunidades</a></li>
+        <li><a href="articulos.html">Guías y artículos</a></li>
+        <li><a href="glosario.html">Glosario</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sitio</h4>
+      <ul>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="cookies.html">Política de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal-note"><div class="wrap">Información orientativa con fines divulgativos. No constituye asesoramiento financiero, fiscal ni legal. Antes de firmar, consulta tu caso con tu banco, un notario o un asesor. © 2026 Hipoteca Clara.</div></div>
+</footer>
+<script src="js/datos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

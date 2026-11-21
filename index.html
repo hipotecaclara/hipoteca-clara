@@ -1,0 +1,172 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hipoteca Clara</title>
+<meta name="description" content="Calcula la cuota de tu hipoteca, los impuestos y gastos de comprar casa en tu comunidad y el precio máximo que puedes pagar. Datos de 2026.">
+<link rel="canonical" href="https://www.tudominio.es/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de hipoteca y gastos de compra | Hipoteca Clara">
+<meta property="og:description" content="Calcula la cuota de tu hipoteca, los impuestos y gastos de comprar casa en tu comunidad y el precio máximo que puedes pagar. Datos de 2026.">
+<meta property="og:url" content="https://www.tudominio.es/">
+<meta property="og:locale" content="es_ES">
+<meta name="theme-color" content="#14213d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Mono:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<!-- GOOGLE ADSENSE: cuando AdSense te dé tu código, sustituye ca-pub-XXXXXXXXXXXXXXXX y quita los comentarios de la línea siguiente.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<a href="#contenido" class="sr-skip" style="position:absolute;left:-9999px">Saltar al contenido</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    <nav class="nav" id="menu" aria-label="Principal"><a href="index.html" aria-current="page">Inicio</a><a href="calculadora-hipoteca.html">Calculadora</a><a href="gastos-compra-vivienda.html">Gastos de compra</a><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a><a href="euribor.html">Euríbor</a><a href="articulos.html">Guías y artículos</a><a href="itp-por-comunidades.html">ITP por comunidad</a></nav>
+  </div>
+</header>
+<main id="contenido">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="sign-tag">Se vende · Se hipoteca</span>
+      <h1>Calcula tu hipoteca y lo que cuesta comprar casa, sin letra pequeña</h1>
+      <p class="lead">Cuota mensual, impuestos de tu comunidad, gastos de notaría y registro, y el precio máximo que te puedes permitir. Con datos actualizados de 2026.</p>
+      <div class="btn-row">
+        <a class="btn" href="calculadora-hipoteca.html">Calcular mi cuota</a>
+        <a class="btn ghost" href="gastos-compra-vivienda.html">Ver gastos de compra</a>
+      </div>
+    </div>
+    <form class="panel" id="calc-cuota" onsubmit="return false" aria-label="Calculadora rápida de cuota">
+      <h2 style="font-size:1.25rem">Cuota rápida</h2>
+      <div class="fields">
+        <div><label for="c-precio">Precio de la vivienda (€)</label><input id="c-precio" type="number" inputmode="decimal" value="250000" min="0" step="1000"></div>
+        <div><label for="c-entrada">Ahorro que aportas (€)</label><input id="c-entrada" type="number" inputmode="decimal" value="50000" min="0" step="1000"></div>
+        <div><label for="c-anos">Plazo (años)</label><input id="c-anos" type="number" value="30" min="1" max="40"></div>
+        <div class="full"><div class="seg" role="group" aria-label="Tipo de interés"><button type="button" data-modo="fijo" aria-pressed="true">Fijo</button><button type="button" data-modo="variable" aria-pressed="false">Variable</button></div></div>
+        <div id="row-tin"><label for="c-tin">TIN fijo (%)</label><input id="c-tin" type="number" value="2.9" step="0.05" min="0"></div>
+        <div id="row-eur" hidden><label for="c-euribor">Euríbor (%)</label><input id="c-euribor" type="number" value="3.247" step="0.01"></div>
+        <div id="row-dif" hidden><label for="c-dif">Diferencial (%)</label><input id="c-dif" type="number" value="0.75" step="0.05" min="0"></div>
+      </div>
+      <div class="result">
+        <div class="hint">Cuota mensual estimada</div>
+        <div class="big" id="r-cuota">—</div>
+        <div class="stats">
+          <div class="stat"><div class="k">Préstamo</div><div class="v" id="r-capital">—</div></div>
+          <div class="stat"><div class="k">Tipo aplicado</div><div class="v" id="r-tin">—</div></div>
+          <div class="stat"><div class="k">Intereses</div><div class="v" id="r-intereses">—</div></div>
+        </div>
+        <p class="hint" id="r-aviso" hidden></p><p class="hint" id="r-sens" hidden></p>
+        <span id="r-total" hidden></span>
+        <div hidden><svg id="amort-chart"></svg><table><tbody id="amort-body"></tbody></table></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <div><div class="k">Euríbor 12 meses · <span data-euribor-mes>septiembre 2026</span></div><div class="v" data-euribor>3,247 %</div></div>
+  <div><div class="k">Hace un año</div><div class="v">2,172 %</div></div>
+  <div><div class="k">IVA vivienda nueva</div><div class="v">10 %</div></div>
+  <a href="euribor.html">Cómo afecta a tu hipoteca →</a>
+</div></div>
+
+<div class="wrap"><div class="ad-slot " aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div></div>
+
+<section class="block"><div class="wrap">
+  <div class="section-head"><div><h2>Herramientas</h2><p>Cada calculadora responde a una pregunta concreta. Todas funcionan en el navegador: no pedimos ni guardamos tus datos.</p></div></div>
+  <div class="tools">
+    <a class="tool" href="calculadora-hipoteca.html"><span class="icon">CUOTA</span><h3>Calculadora de hipoteca</h3><p>Cuota mensual a tipo fijo o variable, intereses totales y cuadro de amortización año a año.</p><span class="go">Calcular →</span></a>
+    <a class="tool" href="gastos-compra-vivienda.html"><span class="icon">ITP · IVA · AJD</span><h3>Gastos de compra</h3><p>Impuestos de tu comunidad autónoma, notaría, registro y el ahorro total que necesitas.</p><span class="go">Ver desglose →</span></a>
+    <a class="tool" href="cuanto-puedo-pagar.html"><span class="icon">PRECIO MÁX.</span><h3>¿Cuánto puedo pagar?</h3><p>El precio de vivienda que encaja con tus ingresos y tus ahorros, con el criterio que usan los bancos.</p><span class="go">Averiguar →</span></a>
+    <a class="tool" href="euribor.html"><span class="icon">ÍNDICE</span><h3>Euríbor</h3><p>Evolución mensual y cómo cambia tu cuota en cada revisión de una hipoteca variable.</p><span class="go">Consultar →</span></a>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="section-head"><div><h2>Lo más consultado</h2><p>Respuestas rápidas a las búsquedas más habituales.</p></div><a href="articulos.html">Ver todas las guías →</a></div>
+  <h3 style="margin-bottom:10px">ITP por comunidad</h3><div class="ccaa-grid"><a href='itp-pais-vasco.html'>País Vasco<span>4 %</span></a><a href='itp-madrid.html'>Comunidad de Madrid<span>6 %</span></a><a href='itp-navarra.html'>Navarra<span>6 %</span></a><a href='itp-canarias.html'>Canarias<span>6,5 %</span></a><a href='itp-andalucia.html'>Andalucía<span>7 %</span></a><a href='itp-cantabria.html'>Cantabria<span>7 %</span></a><a href='itp-la-rioja.html'>La Rioja<span>7 %</span></a><a href='itp-murcia.html'>Región de Murcia<span>7,75 %</span></a><a href='itp-aragon.html'>Aragón<span>8 %</span></a><a href='itp-asturias.html'>Asturias<span>8 %</span></a><a href='itp-castilla-leon.html'>Castilla y León<span>8 %</span></a><a href='itp-extremadura.html'>Extremadura<span>8 %</span></a><a href='itp-galicia.html'>Galicia<span>8 %</span></a><a href='itp-baleares.html'>Illes Balears<span>8 %</span></a><a href='itp-castilla-la-mancha.html'>Castilla-La Mancha<span>9 %</span></a><a href='itp-valencia.html'>Comunitat Valenciana<span>9 %</span></a><a href='itp-cataluna.html'>Cataluña<span>10 %</span></a></div>
+  <h3 style="margin:24px 0 10px">Cuánto pagarás al mes</h3><div class="related"><a href='hipoteca-100000-euros.html'>Hipoteca de 100.000 €</a><a href='hipoteca-120000-euros.html'>Hipoteca de 120.000 €</a><a href='hipoteca-150000-euros.html'>Hipoteca de 150.000 €</a><a href='hipoteca-180000-euros.html'>Hipoteca de 180.000 €</a><a href='hipoteca-200000-euros.html'>Hipoteca de 200.000 €</a><a href='hipoteca-250000-euros.html'>Hipoteca de 250.000 €</a><a href='hipoteca-300000-euros.html'>Hipoteca de 300.000 €</a></div>
+  <h3 style="margin:24px 0 10px">Guías</h3><div class="related"><a href="hipoteca-fija-o-variable.html">Fija o variable en 2026</a><a href="hipoteca-jovenes-aval-ico.html">Hipoteca para jóvenes: aval ICO</a><a href="amortizar-hipoteca-cuota-o-plazo.html">Amortizar: cuota o plazo</a><a href="cambiar-hipoteca-de-banco.html">Cambiar la hipoteca de banco</a></div>
+</div></section>
+<section class="block"><div class="wrap layout">
+  <div class="prose">
+    <h2 style="margin-top:0">Lo que conviene saber antes de pedir una hipoteca</h2>
+    <p>Comprar vivienda en España exige dos cosas a la vez: un banco dispuesto a prestarte y unos ahorros suficientes para lo que el banco no presta. La mayoría de entidades financian como máximo el <strong>80 % del valor de tasación</strong> en primera vivienda. El 20 % restante y los gastos de compra, que suelen sumar entre un <strong>8 % y un 13 % del precio</strong> según la comunidad, salen de tu bolsillo.</p>
+    <p>Por eso, para una vivienda de 250.000 € conviene tener ahorrados unos 70.000–80.000 € antes de empezar a visitar pisos. Nuestra <a href="gastos-compra-vivienda.html">calculadora de gastos</a> te da la cifra exacta para tu comunidad.</p>
+    <h3>Fija, variable o mixta</h3>
+    <p>En una hipoteca <strong>fija</strong> pagas la misma cuota durante toda la vida del préstamo. En una <strong>variable</strong> la cuota se revisa cada 6 o 12 meses según el Euríbor más un diferencial pactado. La <strong>mixta</strong> combina unos años a tipo fijo con el resto a variable. Con el Euríbor por encima del 3 % tras la subida de tipos del BCE en septiembre de 2026, la diferencia entre ofertas fijas y variables se ha estrechado: compara siempre la TAE y el coste total, no solo la cuota del primer año.</p>
+    <h3>La regla del 30–35 %</h3>
+    <p>Los bancos miran la tasa de esfuerzo: la cuota de la hipoteca, sumada a otros préstamos que tengas, no debería superar entre el 30 % y el 35 % de tus ingresos netos mensuales. Si la superas, es probable que te denieguen la operación o te pidan un avalista.</p>
+    <p><a href="guia-comprar-vivienda.html">Lee la guía completa para comprar vivienda paso a paso →</a></p>
+  </div>
+<aside class="aside">
+  <div class="panel">
+    <h3>Euríbor a 12 meses</h3>
+    <div class="big" style="font-size:2rem"><span data-euribor>3,247 %</span></div>
+    <p class="hint">Media oficial de <span data-euribor-mes>septiembre 2026</span>. <a href="euribor.html">Ver evolución</a></p>
+  </div>
+  
+  <div class="panel">
+    <h3>Herramientas</h3>
+    <ul>
+      <li><a href="calculadora-hipoteca.html">Calcular la cuota</a></li>
+      <li><a href="gastos-compra-vivienda.html">Gastos e impuestos</a></li>
+      <li><a href="cuanto-puedo-pagar.html">Precio máximo según tu sueldo</a></li>
+    </ul>
+  </div>
+  <div class="ad-slot tall" aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <!-- ANUNCIO AdSense: pega aquí tu bloque y cambia data-ad-slot por el tuyo
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  -->
+</div>
+</aside>
+</div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">HC</span>Hipoteca Clara</a>
+      <p>Calculadoras y guías gratuitas para entender tu hipoteca y lo que cuesta de verdad comprar una vivienda en España.</p>
+    </div>
+    <div>
+      <h4>Herramientas</h4>
+      <ul>
+        <li><a href="calculadora-hipoteca.html">Calculadora de hipoteca</a></li>
+        <li><a href="gastos-compra-vivienda.html">Gastos de compra e ITP</a></li>
+        <li><a href="cuanto-puedo-pagar.html">¿Cuánto puedo pagar?</a></li>
+        <li><a href="euribor.html">Euríbor hoy</a></li>
+        <li><a href="itp-por-comunidades.html">ITP por comunidades</a></li>
+        <li><a href="articulos.html">Guías y artículos</a></li>
+        <li><a href="glosario.html">Glosario</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sitio</h4>
+      <ul>
+        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Política de privacidad</a></li>
+        <li><a href="cookies.html">Política de cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal-note"><div class="wrap">Información orientativa con fines divulgativos. No constituye asesoramiento financiero, fiscal ni legal. Antes de firmar, consulta tu caso con tu banco, un notario o un asesor. © 2026 Hipoteca Clara.</div></div>
+</footer>
+<script src="js/datos.js"></script>
+<script src="js/main.js"></script>
+
+</body></html>
